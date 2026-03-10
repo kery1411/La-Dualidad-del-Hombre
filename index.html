@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Dualidad del Hombre – Kery Gúzman</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --blue:#1a5bb0; --red:#cc2200; --gold:#c8a050; --dark:#0e0e0e; --cream:#f7f2eb; --text:#1a1a1a; --muted:#6b6b6b; }
+  *{margin:0;padding:0;box-sizing:border-box;} html{scroll-behavior:smooth;}
+  body{background:var(--dark);color:var(--text);font-family:'Cormorant Garamond',serif;overflow-x:hidden;}
+
+  .sidebar{position:fixed;left:0;top:0;width:270px;height:100vh;background:#0a0a0a;border-right:1px solid rgba(200,160,80,.15);z-index:100;display:flex;flex-direction:column;padding:28px 0;overflow-y:auto;transition:transform .3s ease;}
+  .sidebar-brand{padding:0 24px 24px;border-bottom:1px solid rgba(200,160,80,.15);margin-bottom:10px;}
+  .brand-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:6px;}
+  .brand-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#f0e8d8;line-height:1.3;}
+  .nav-section{padding:10px 24px 4px;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(200,160,80,.45);font-family:'Cormorant Garamond',serif;margin-top:4px;}
+  .nav-item{display:flex;align-items:center;gap:10px;padding:8px 24px;cursor:pointer;transition:all .2s;border-left:2px solid transparent;text-decoration:none;}
+  .nav-item:hover{background:rgba(200,160,80,.06);border-left-color:var(--gold);}
+  .nav-item.active{background:rgba(200,160,80,.1);border-left-color:var(--gold);}
+  .nav-num{font-family:'Playfair Display',serif;font-size:10px;color:var(--gold);opacity:.6;min-width:18px;}
+  .nav-text{font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(240,232,216,.65);line-height:1.3;}
+  .nav-item.active .nav-text{color:#f0e8d8;}
+
+  .main{margin-left:270px;min-height:100vh;}
+
+  /* COVER */
+  .cover-page{height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;position:relative;overflow:hidden;}
+  .cover-bg-left{position:absolute;left:0;top:0;width:50%;height:100%;background:var(--blue);clip-path:polygon(0 0,100% 0,82% 100%,0 100%);opacity:.9;}
+  .cover-bg-right{position:absolute;right:0;top:0;width:60%;height:100%;background:var(--red);clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);opacity:.9;}
+  .cover-tri-white{position:absolute;width:0;height:0;border-style:solid;border-width:0 0 30vh 25vw;border-color:transparent transparent #f5f0e8 transparent;bottom:12vh;left:0;z-index:3;}
+  .cover-tri-black{position:absolute;width:0;height:0;border-style:solid;border-width:30vh 25vw 0 0;border-color:#111 transparent transparent transparent;bottom:12vh;right:0;z-index:3;}
+  .cover-hatch-top{position:absolute;top:0;left:0;width:100%;height:18px;background:repeating-linear-gradient(90deg,#111 0,#111 10px,#eee 10px,#eee 20px);z-index:10;}
+  .cover-hatch-bottom{position:absolute;bottom:0;left:0;width:100%;height:18px;background:repeating-linear-gradient(90deg,#111 0,#111 10px,#eee 10px,#eee 20px);z-index:10;}
+  .cover-divider{position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(200,160,80,.5) 20%,rgba(200,160,80,.5) 80%,transparent);z-index:5;}
+  .cover-content{position:relative;z-index:20;text-align:center;padding:0 40px;}
+  .cover-eye{margin:0 auto 40px;animation:eyeBlink 7s ease-in-out infinite;}
+  @keyframes eyeBlink{0%,88%,100%{transform:scaleY(1)}93%{transform:scaleY(.06)}}
+  .cover-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(200,160,80,.8);margin-bottom:16px;}
+  .cover-title{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,72px);font-weight:900;color:#fff;line-height:1.0;text-shadow:0 4px 30px rgba(0,0,0,.4);margin-bottom:8px;}
+  .cover-title em{font-style:italic;color:var(--gold);}
+  .cover-rule{width:60px;height:2px;background:var(--gold);margin:20px auto;}
+  .cover-author{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;letter-spacing:3px;color:rgba(240,232,216,.9);text-transform:uppercase;}
+  .cover-author em{font-style:italic;color:var(--gold);}
+  .cover-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:20;color:rgba(200,160,80,.6);font-size:11px;letter-spacing:3px;text-transform:uppercase;animation:bounce 2s ease-in-out infinite;cursor:pointer;}
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+  /* PART DIVIDER */
+  .part-page{min-height:55vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .part-page.planteamiento{background:#0b1525;}
+  .part-page.desarrollo{background:#1c0b08;}
+  .part-page::before{content:'';position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px);}
+  .part-content{position:relative;z-index:5;text-align:center;padding:60px 40px;}
+  .part-tag{font-size:10px;letter-spacing:6px;text-transform:uppercase;margin-bottom:20px;}
+  .planteamiento .part-tag{color:rgba(100,160,220,.7);}
+  .desarrollo .part-tag{color:rgba(220,100,80,.7);}
+  .part-number{font-family:'Playfair Display',serif;font-size:clamp(60px,10vw,110px);font-weight:900;line-height:1;margin-bottom:12px;}
+  .planteamiento .part-number{color:rgba(100,160,220,.12);}
+  .desarrollo .part-number{color:rgba(220,100,80,.12);}
+  .part-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:700;font-style:italic;}
+  .planteamiento .part-title{color:#c8daf5;}
+  .desarrollo .part-title{color:#f5c8c0;}
+  .part-rule{width:50px;height:1px;margin:20px auto;}
+  .planteamiento .part-rule{background:rgba(100,160,220,.4);}
+  .desarrollo .part-rule{background:rgba(220,100,80,.4);}
+  .part-desc{font-size:16px;line-height:1.7;max-width:480px;margin:0 auto;}
+  .planteamiento .part-desc{color:rgba(200,218,245,.55);}
+  .desarrollo .part-desc{color:rgba(245,200,192,.55);}
+
+  /* CHAPTER */
+  .chapter-page{min-height:100vh;background:var(--cream);position:relative;display:flex;}
+  .chapter-page.dev-page{background:#f0ebe2;}
+  .chapter-accent{width:6px;min-height:100%;flex-shrink:0;}
+  .chapter-accent.blue{background:var(--blue);}
+  .chapter-accent.red{background:var(--red);}
+  .chapter-accent.gold{background:var(--gold);}
+  .chapter-accent.dark{background:#1a1a1a;}
+  .chapter-inner{flex:1;max-width:780px;padding:70px 70px 70px 58px;position:relative;}
+
+  .section-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:2px;margin-bottom:14px;font-size:10px;letter-spacing:4px;text-transform:uppercase;}
+  .planteamiento-badge{background:rgba(26,91,176,.1);color:var(--blue);border:1px solid rgba(26,91,176,.2);}
+  .desarrollo-badge{background:rgba(204,34,0,.08);color:var(--red);border:1px solid rgba(204,34,0,.15);}
+
+  .chapter-num{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .chapter-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.2vw,40px);font-weight:900;color:var(--text);line-height:1.1;margin-bottom:6px;}
+  .chapter-title em{font-style:italic;color:var(--red);}
+  .chapter-title.blue-accent em{color:var(--blue);}
+  .chapter-title.gold-accent em{color:var(--gold);}
+  .chapter-rule{width:48px;height:2px;margin:16px 0 30px;}
+  .chapter-rule.blue{background:var(--blue);}
+  .chapter-rule.red{background:var(--red);}
+  .chapter-rule.gold{background:var(--gold);}
+  .chapter-rule.dark{background:#1a1a1a;}
+
+  .chapter-body{font-size:19px;line-height:1.85;color:#2a2a2a;}
+  .chapter-body p{margin-bottom:1.4em;}
+  .chapter-body p:first-child::first-letter{font-family:'Playfair Display',serif;font-size:5em;font-weight:900;float:left;line-height:.75;margin:8px 12px 0 0;color:var(--red);}
+  .chapter-page.dev-page .chapter-body p:first-child::first-letter{color:var(--blue);}
+
+  .pull-quote{border-left:3px solid var(--gold);margin:30px 0;padding:16px 22px;background:rgba(200,160,80,.06);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;line-height:1.5;color:#1a1a1a;margin:0!important;}
+  .pull-quote p::first-letter{all:unset!important;}
+
+  .duality-block{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:28px 0;}
+  .duality-left{background:var(--blue);color:#fff;padding:20px 24px;font-size:17px;line-height:1.7;}
+  .duality-right{background:var(--red);color:#fff;padding:20px 24px;font-size:17px;line-height:1.7;}
+  .duality-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.7;margin-bottom:8px;font-family:'Playfair Display',serif;}
+
+  /* FINAL */
+  .final-page{min-height:100vh;background:#0e0e0e;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .final-bg-left{position:absolute;left:0;top:0;width:50%;height:100%;background:var(--blue);opacity:.2;}
+  .final-bg-right{position:absolute;right:0;top:0;width:50%;height:100%;background:var(--red);opacity:.2;}
+  .final-content{position:relative;z-index:10;max-width:640px;text-align:center;padding:60px 40px;}
+  .final-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:20px;}
+  .final-title{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;font-style:italic;color:#f0e8d8;margin-bottom:12px;}
+  .final-rule{width:50px;height:1px;background:var(--gold);margin:24px auto;}
+  .final-body{font-size:20px;line-height:1.9;color:rgba(240,232,216,.85);margin-bottom:1.4em;}
+  .final-closing{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--gold);letter-spacing:2px;margin-top:36px;}
+
+  .menu-toggle{display:none;position:fixed;top:16px;left:16px;z-index:200;background:#0a0a0a;border:1px solid rgba(200,160,80,.3);color:var(--gold);width:40px;height:40px;cursor:pointer;font-size:18px;align-items:center;justify-content:center;}
+  @media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.menu-toggle{display:flex}.chapter-inner{padding:60px 24px}.duality-block{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-label">Editorial Studio Millenials</div>
+    <div class="brand-title">La Dualidad<br>del Hombre</div>
+  </div>
+  <a class="nav-item active" href="#cover" onclick="setActive(this)"><span class="nav-num">◈</span><span class="nav-text">Portada</span></a>
+
+  <div class="nav-section">— Planteamiento de la Idea</div>
+  <a class="nav-item" href="#plan1" onclick="setActive(this)"><span class="nav-num">01</span><span class="nav-text">El hombre del fragmento</span></a>
+  <a class="nav-item" href="#plan2" onclick="setActive(this)"><span class="nav-num">02</span><span class="nav-text">El origen del desequilibrio</span></a>
+  <a class="nav-item" href="#plan3" onclick="setActive(this)"><span class="nav-num">03</span><span class="nav-text">La máscara del orden</span></a>
+  <a class="nav-item" href="#plan4" onclick="setActive(this)"><span class="nav-num">04</span><span class="nav-text">Sombra del poder</span></a>
+  <a class="nav-item" href="#plan5" onclick="setActive(this)"><span class="nav-num">05</span><span class="nav-text">La rebelión del alma</span></a>
+  <a class="nav-item" href="#plan6" onclick="setActive(this)"><span class="nav-num">06</span><span class="nav-text">La ciudad del orden perfecto</span></a>
+  <a class="nav-item" href="#plan7" onclick="setActive(this)"><span class="nav-num">07</span><span class="nav-text">La luz que falta</span></a>
+  <a class="nav-item" href="#plan8" onclick="setActive(this)"><span class="nav-num">08</span><span class="nav-text">La caída del falso orden</span></a>
+  <a class="nav-item" href="#plan9" onclick="setActive(this)"><span class="nav-num">09</span><span class="nav-text">El retorno de la bondad</span></a>
+  <a class="nav-item" href="#plan10" onclick="setActive(this)"><span class="nav-num">10</span><span class="nav-text">Epílogo</span></a>
+
+  <div class="nav-section" style="margin-top:8px;">— Desarrollo de la Historia</div>
+  <a class="nav-item" href="#dev1" onclick="setActive(this)"><span class="nav-num">01</span><span class="nav-text">El hombre del fragmento</span></a>
+  <a class="nav-item" href="#dev2" onclick="setActive(this)"><span class="nav-num">02</span><span class="nav-text">El origen del desequilibrio</span></a>
+  <a class="nav-item" href="#dev3" onclick="setActive(this)"><span class="nav-num">03</span><span class="nav-text">La máscara del orden</span></a>
+  <a class="nav-item" href="#dev4" onclick="setActive(this)"><span class="nav-num">04</span><span class="nav-text">Sombra del poder</span></a>
+  <a class="nav-item" href="#dev5" onclick="setActive(this)"><span class="nav-num">05</span><span class="nav-text">La rebelión del alma</span></a>
+  <a class="nav-item" href="#dev6" onclick="setActive(this)"><span class="nav-num">06</span><span class="nav-text">La ciudad del orden perfecto</span></a>
+  <a class="nav-item" href="#dev7" onclick="setActive(this)"><span class="nav-num">07</span><span class="nav-text">La luz que falta</span></a>
+  <a class="nav-item" href="#dev8" onclick="setActive(this)"><span class="nav-num">08</span><span class="nav-text">La caída del falso orden</span></a>
+</nav>
+
+<main class="main">
+
+<!-- COVER -->
+<section class="cover-page" id="cover">
+  <div class="cover-bg-left"></div><div class="cover-bg-right"></div>
+  <div class="cover-tri-white"></div><div class="cover-tri-black"></div>
+  <div class="cover-divider"></div>
+  <div class="cover-hatch-top"></div><div class="cover-hatch-bottom"></div>
+  <div class="cover-content">
+    <div class="cover-eye">
+      <svg width="200" height="96" viewBox="0 0 200 96" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 8 Q192 48 100 88 Q8 48 100 8Z" fill="#ffffff"/>
+        <circle cx="100" cy="48" r="28" fill="#cc2200"/>
+        <circle cx="100" cy="48" r="14" fill="#111111"/>
+        <circle cx="92" cy="40" r="5" fill="rgba(255,255,255,0.45)"/>
+      </svg>
+    </div>
+    <div class="cover-label">Editorial Studio Millenials</div>
+    <div class="cover-title">La Dualidad<br><em>del</em> Hombre</div>
+    <div class="cover-rule"></div>
+    <div class="cover-author">Kery <em>Gúzman</em></div>
+  </div>
+  <div class="cover-scroll" onclick="document.getElementById('part-plan').scrollIntoView({behavior:'smooth'})">Comenzar ↓</div>
+</section>
+
+<!-- PARTE I -->
+<section class="part-page planteamiento" id="part-plan">
+  <div class="part-content">
+    <div class="part-tag">Primera Parte</div>
+    <div class="part-number">I</div>
+    <div class="part-title">Planteamiento de la Idea</div>
+    <div class="part-rule"></div>
+    <div class="part-desc">La estructura conceptual de la obra. El esqueleto filosófico que da forma a cada capítulo — las ideas, las tensiones y las preguntas que sostienen la narrativa.</div>
+  </div>
+</section>
+
+<!-- PLAN 1 -->
+<section class="chapter-page" id="plan1">
+  <div class="chapter-accent red"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 01</div>
+    <div class="chapter-num">Capítulo 01</div>
+    <h2 class="chapter-title">El hombre <em>del fragmento</em></h2>
+    <div class="chapter-rule red"></div>
+    <div class="chapter-body">
+      <p>Siempre pensé que los seres humanos éramos piezas incompletas, como un espejo roto que aún refleja la luz. Crecí observando cómo las personas cambiaban según quién las mirara: amables con algunos, crueles con otros, benévolas por la mañana y miserables por la noche.</p>
+      <p>En ese caos, descubrí que no somos solo una cosa; somos un fragmento de cada teoría, cada herida, cada esperanza. Rousseau dijo que nacemos buenos. Maquiavelo dijo que somos malos por naturaleza. La Biblia decía que somos una criatura caída y dividida. Yo era esa división andando.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 2 -->
+<section class="chapter-page" id="plan2">
+  <div class="chapter-accent blue"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 02</div>
+    <div class="chapter-num">Capítulo 02</div>
+    <h2 class="chapter-title blue-accent">El origen <em>del desequilibrio</em></h2>
+    <div class="chapter-rule blue"></div>
+    <div class="chapter-body">
+      <p>El desequilibrio comenzó cuando el mundo empezó a tocar al niño que una vez fui. Se supone que uno nace puro, como dicen Rousseau y la Biblia, pero la sociedad tiene su forma de moldearnos a base de golpes duros.</p>
+      <p>Lo que me hacía desconfiar no era mi propia naturaleza, sino la de los demás. Y ante el peligro, la bondad se retira y la astucia toma el control. Maquiavelo tenía razón: el hombre surge de la necesidad, la defensa y el miedo.</p>
+      <div class="duality-block">
+        <div class="duality-left"><div class="duality-label">Una parte</div>Quiere amar y confiar sin límites.</div>
+        <div class="duality-right"><div class="duality-label">La otra parte</div>Quiere sobrevivir y protegerse. Ambas creen tener razón.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 3 -->
+<section class="chapter-page" id="plan3">
+  <div class="chapter-accent dark"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 03</div>
+    <div class="chapter-num">Capítulo 03</div>
+    <h2 class="chapter-title">La máscara <em>del orden</em></h2>
+    <div class="chapter-rule dark"></div>
+    <div class="chapter-body">
+      <p>En este capítulo, aparece la primera institución clave: el Estado. Los seres humanos crean un sistema para frenar su propio caos, pero todo sistema termina replicando esa misma dualidad.</p>
+      <p>El Estado promete orden, pero siempre alberga una semilla de opresión. Existe una ley; puede proteger, puede controlar una estructura, puede organizar o puede oprimir. Las instituciones son reflejos imperfectos del corazón humano.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 4 -->
+<section class="chapter-page" id="plan4">
+  <div class="chapter-accent gold"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 04</div>
+    <div class="chapter-num">Capítulo 04</div>
+    <h2 class="chapter-title gold-accent">Sombra del poder — <em>nacimiento de un líder</em></h2>
+    <div class="chapter-rule gold"></div>
+    <div class="chapter-body">
+      <p>Al crecer, aprendí a usar una máscara. No era la única; todos la usaban. La llamaban educación, civilidad, etiqueta, pero en el fondo era una herramienta, una forma de ocultar la naturaleza reactiva que emerge cuando el alma se siente amenazada.</p>
+      <p>Proyectamos orden mientras vivimos en desorden, proyectamos bondad mientras en nuestro interior luchamos contra nuestros demonios. La máscara nos protege, pero nos distancia de nosotros mismos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 5 -->
+<section class="chapter-page" id="plan5">
+  <div class="chapter-accent red"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 05</div>
+    <div class="chapter-num">Capítulo 05</div>
+    <h2 class="chapter-title">La rebelión <em>del alma</em></h2>
+    <div class="chapter-rule red"></div>
+    <div class="chapter-body">
+      <p>Pero el alma no fue creada para vivir sometida. La Biblia nos dice que donde está el espíritu, hay libertad, e incluso la libertad aprisionada encuentra resquicios para escapar.</p>
+      <p>La gente empezó a sentir que la autoridad que los protegía también los asfixiaba, que la máscara del orden se había convertido en una prisión. El alma humana se rebela por naturaleza, a veces para bien, a veces para mal, pero siempre para recuperar el equilibrio perdido.</p>
+      <div class="pull-quote"><p>"La rebelión no nace del odio; nace de la necesidad de volver a ser humanos."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 6 -->
+<section class="chapter-page" id="plan6">
+  <div class="chapter-accent blue"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 06</div>
+    <div class="chapter-num">Capítulo 06</div>
+    <h2 class="chapter-title blue-accent">La ciudad <em>del orden perfecto</em></h2>
+    <div class="chapter-rule blue"></div>
+    <div class="chapter-body">
+      <p>El líder, temiendo esta rebelión interna, creó una ciudad modelo, una ciudad donde cada detalle estaba calculado: comportamiento, horarios, palabras permitidas, pensamientos aceptables.</p>
+      <p>Era el sueño de Maquiavelo llevado al extremo, un orden tan perfecto que dejaba de ser humano. Aquí, la dualidad se hizo visible: la bondad original fue sofocada y el mal reactivo se disfrazó de obediencia.</p>
+      <div class="duality-block">
+        <div class="duality-left"><div class="duality-label">Había silencio</div>Pero no paz.</div>
+        <div class="duality-right"><div class="duality-label">Había control</div>Pero no armonía. Había estructura, pero no alma.</div>
+      </div>
+      <div class="pull-quote"><p>"La ciudad perfecta era una jaula dorada."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 7 -->
+<section class="chapter-page" id="plan7">
+  <div class="chapter-accent gold"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 07</div>
+    <div class="chapter-num">Capítulo 07</div>
+    <h2 class="chapter-title gold-accent">La luz <em>que falta</em></h2>
+    <div class="chapter-rule gold"></div>
+    <div class="chapter-body">
+      <p>Y entonces llegó el descubrimiento más importante: que donde sin moralidad hay tiranía, la libertad sin virtud es caos. Los seres humanos necesitan una luz interior que el poder no puede fabricar.</p>
+      <p>Rousseau se equivocó al creer que la sociedad lo corrompe todo. Maquiavelo se equivocó al pensar que el hombre nace malvado; está incompleto sin la luz que lo guía.</p>
+      <div class="pull-quote"><p>"La luz que faltaba no era política ni filosófica; era espiritual."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 8 -->
+<section class="chapter-page" id="plan8">
+  <div class="chapter-accent dark"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 08</div>
+    <div class="chapter-num">Capítulo 08</div>
+    <h2 class="chapter-title">La caída <em>del falso orden</em></h2>
+    <div class="chapter-rule dark"></div>
+    <div class="chapter-body">
+      <p>Cuando la gente se dio cuenta de que vivía sin alma, el orden empezó a desmoronarse. Un sistema basado únicamente en el miedo nunca perdura; un liderazgo sin ética se desmorona desde dentro.</p>
+      <p>La ciudad perfecta se derrumbó porque nunca fue verdaderamente humana, porque intentó eliminar la dualidad en lugar de comprenderla.</p>
+      <div class="pull-quote"><p>"El líder cayó no por ser malvado, sino porque creyó poder controlar lo único indomable: el corazón humano."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 9 -->
+<section class="chapter-page" id="plan9">
+  <div class="chapter-accent blue"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 09</div>
+    <div class="chapter-num">Capítulo 09</div>
+    <h2 class="chapter-title blue-accent">El retorno <em>de la bondad verdadera</em></h2>
+    <div class="chapter-rule blue"></div>
+    <div class="chapter-body">
+      <p>La reconstrucción comenzó cuando la gente comprendió que la bondad no es debilidad, ni la autoridad maldad; la verdadera bondad requiere fuerza, la verdadera autoridad requiere humildad; el equilibrio nace cuando ambas partes del alma aprenden a hablar sin pelear.</p>
+      <div class="pull-quote"><p>"El hombre es bueno por origen, egoísta por herencia y libre por diseño, y sólo puede ser completo reconociendo su dualidad."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 10 -->
+<section class="chapter-page" id="plan10">
+  <div class="chapter-accent red"></div>
+  <div class="chapter-inner">
+    <div class="section-badge planteamiento-badge">Planteamiento · Capítulo 10</div>
+    <div class="chapter-num">Capítulo 10 · Epílogo</div>
+    <h2 class="chapter-title">El hombre <em>perfecto</em></h2>
+    <div class="chapter-rule red"></div>
+    <div class="chapter-body">
+      <p>El hombre perfecto no es el que nunca cae, ni el que domina a los demás, ni el que vive sin sombras. El hombre perfecto es el que comprende su dualidad y aprende a vivir con ella sin destruirse.</p>
+      <p style="color:var(--blue);font-style:italic;">Somos luz y somos sombras.</p>
+      <p style="color:var(--red);font-style:italic;">Somos espíritu y somos supervivencia.</p>
+      <p style="color:#8a6a00;font-style:italic;">Somos Edén y somos desierto.</p>
+      <p>Y nuestra historia como humanidad y como individuos es la historia de aprender a vivir entre ambos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTE II -->
+<section class="part-page desarrollo" id="part-dev">
+  <div class="part-content">
+    <div class="part-tag">Segunda Parte</div>
+    <div class="part-number">II</div>
+    <div class="part-title">Desarrollo de la Historia</div>
+    <div class="part-rule"></div>
+    <div class="part-desc">La narrativa completa. La voz íntima y honesta que da vida a cada capítulo — las memorias, las emociones y los momentos que construyen la obra.</div>
+  </div>
+</section>
+
+<!-- DEV 1 -->
+<section class="chapter-page dev-page" id="dev1">
+  <div class="chapter-accent red"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 01</div>
+    <div class="chapter-num">Capítulo 01</div>
+    <h2 class="chapter-title">El hombre <em>del fragmento</em></h2>
+    <div class="chapter-rule red"></div>
+    <div class="chapter-body">
+      <p>En este capítulo, el conflicto principal de la historia comienza a tomar forma. La figura del hombre del fragmento introduce misterio y rompe la normalidad. Algo inusual ha aparecido y cambia la comprensión de la realidad. La historia se aleja de la estabilidad y se adentra en la incertidumbre.</p>
+      <p>El fragmento no es solo un objeto físico, sino también un símbolo: representa una parte de la verdad, del conocimiento o de la realidad incompleta. Esto es importante porque el conflicto surge de lo que falta, de lo oculto o de lo dividido. El hombre que porta el fragmento parece poseer un conocimiento especial, algo que otros no comprenden del todo o incluso temen.</p>
+      <p>A medida que avanza el capítulo, su presencia altera el equilibrio del entorno. Otros personajes pueden reaccionar con curiosidad, miedo o sospecha. Esto demuestra que el conflicto no es solo externo, sino también interno: cómo las personas sienten y responden a lo desconocido.</p>
+      <p>El entorno y la atmósfera contribuyen a desarrollar esta tensión. No todo se explica con claridad, lo que permite al lector sentir la misma incertidumbre que el personaje. Esta confusión es parte del conflicto. Nadie tiene la verdad completa, solo fragmentos.</p>
+      <div class="pull-quote"><p>"El problema existe ahora, pero aún no se ha resuelto. Este capítulo marca el inicio de las complicaciones que finalmente llevarán la historia a su clímax."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 2 -->
+<section class="chapter-page dev-page" id="dev2">
+  <div class="chapter-accent blue"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 02</div>
+    <div class="chapter-num">Capítulo 02</div>
+    <h2 class="chapter-title blue-accent">El origen <em>del desequilibrio</em></h2>
+    <div class="chapter-rule blue"></div>
+    <div class="chapter-body">
+      <p>Dicen que nacemos puros. Rousseau lo dijo. La Biblia lo sugiere. Los libros hablan de la inocencia como un cristal inmaculado. Un corazón limpio. Una mirada confiada. Un alma que aún no comprende el daño. Yo también era así.</p>
+      <p>No le tenía miedo a la gente. No analizaba las palabras. No buscaba intenciones ocultas. Creía que el mundo era lo que parecía y que las sonrisas no ocultaban los dientes. Pero la pureza no desaparece de la noche a la mañana. No se rompe como un vaso en el suelo. Se desgasta.</p>
+      <p>Primero, fue una broma que no entendí. Luego, una pequeña traición, casi infantil. Luego, una verdad dicha sin cuidado. Una que me hizo sentir más pequeño, más débil, más expuesto. El mundo no me golpeó con una violencia brutal. Me moldeó con firmeza. Y ahí fue cuando comenzó.</p>
+      <p>Lo que me hacía desconfiar no era mi propia naturaleza, sino la de los demás. Seguía queriendo ser bueno, quería creer, quería acercarme a la gente sin miedo, pero cada nueva herida me enseñaba una lección diferente: no todos juegan limpio, no todos sienten culpa, no todos dudan antes de causar dolor.</p>
+      <p>Cuando una nueva voz surgió dentro de mí, no gritó, sino susurró: Ten cuidado, no digas todo lo que sientes, no muestres tus debilidades, aprende a defenderte.</p>
+      <p>Y ante el peligro, la bondad se retira y la astucia toma el control. No porque el alma quiera oscurecerse, sino porque quiere sobrevivir. La gentileza se convierte en silencio. La confianza en cálculo. La honestidad en estrategia.</p>
+      <p>Maquiavelo tenía razón: el hombre no siempre actúa desde la virtud, sino desde la necesidad, la defensa y el miedo. No dejé de sentir, de mostrar, pero no de amar. Aprendí a desconfiar primero. Y esa lección, aunque útil, abrió una grieta.</p>
+      <div class="duality-block">
+        <div class="duality-left"><div class="duality-label">La primera voz</div>"No, todos somos iguales, no cierres tu corazón."</div>
+        <div class="duality-right"><div class="duality-label">La segunda voz</div>"No seas ingenuo, quien no se protege pierde."</div>
+      </div>
+      <p>El desequilibrio comienza cuando el mundo interior y el exterior chocan. Dentro de mí, aún vivía el niño, aquel que quería abrazar sin pensar, perdonar sin medida, hablar sin filtro. Pero afuera, el mundo me enseñó una ley diferente: amar sin precaución duele, confiar sin límites tiene un precio, perdonar sin justicia te quiebra.</p>
+      <p>Y ese era el verdadero origen del desequilibrio: no la maldad pura ni la corrupción total, sino la guerra silenciosa entre la luz que aún vivía dentro de mí y la sombra que aprendí a crear para protegerla.</p>
+      <div class="pull-quote"><p>"El mundo no me convirtió en un monstruo; me enseñó a construir muros. El problema es que cuando vives tras ellos demasiado tiempo, olvidas cómo era el cielo sin defensas."</p></div>
+      <p>Y así, casi sin darme cuenta, el niño que una vez fui comenzó a desaparecer mientras algo más frío y calculador aprendía silenciosamente a ocupar su lugar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 3 -->
+<section class="chapter-page dev-page" id="dev3">
+  <div class="chapter-accent dark"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 03</div>
+    <div class="chapter-num">Capítulo 03</div>
+    <h2 class="chapter-title">La máscara <em>del orden</em></h2>
+    <div class="chapter-rule dark"></div>
+    <div class="chapter-body">
+      <p>El orden es la ilusión más convincente jamás creada. No grita, no exige atención, simplemente ordena las cosas con la precisión suficiente para que dejemos de hacernos preguntas.</p>
+      <p>Aprendí a usar el orden como los soldados usan sus uniformes, no porque yo fuera así, sino porque hacía que los demás se sintieran seguros. Una voz serena, palabras mesuradas, una reacción controlada, todo en su lugar. Sin embargo, dentro de mí, nada estaba alineado.</p>
+      <p>El caos no desapareció cuando elegí la disciplina; se adaptó, se ocultó tras una estructura. Construí rutinas como muros. Construí la lógica como una armadura. Construí como un espejo pulido que reflejaba estabilidad al mundo.</p>
+      <div class="pull-quote"><p>"Nadie sospecha el temblor bajo una superficie quieta."</p></div>
+      <p>La máscara del orden no es malvada, es estratégica. Convence a los demás, y eventualmente a ti mismo, de que todo está bajo control. Que las grietas son cosméticas. Que el silencio significa paz. Pero el silencio también puede significar supresión.</p>
+      <p>Me dije a mí mismo que la estructura era fuerza, que la moderación emocional era madurez, que la precisión era claridad. Me dio control en un mundo que alguna vez me pareció impredecible. Sin embargo, el control no es lo mismo que el equilibrio.</p>
+      <p>El orden organiza el desequilibrio externo que vive en el interior. Cuanto más perfecta se volvía la superficie, menos espacio había para la honestidad. Dejé de reaccionar. Empecé a calcular. Dejé de sentir libremente. Filtraba todo a través de la razón.</p>
+      <p>Funcionó hasta que dejé de hacerlo. Porque el caos es paciente. Espera tras la máscara, observando cómo el aprendizaje se fortalece en el confinamiento y finalmente se mueve. No pide permiso. Rompe la simetría.</p>
+      <p>Y la máscara que usé con tanto cuidado —la calma, la lógica, la compostura— nunca fueron prueba de que estuviera curada. Fue prueba de que había aprendido a ocultar la tormenta. Ese era el peligro: no desmoronarse, sino verse completo mientras se fracturaba con precisión.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 4 -->
+<section class="chapter-page dev-page" id="dev4">
+  <div class="chapter-accent gold"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 04</div>
+    <div class="chapter-num">Capítulo 04</div>
+    <h2 class="chapter-title gold-accent">Sombra del poder — <em>nacimiento de un líder</em></h2>
+    <div class="chapter-rule gold"></div>
+    <div class="chapter-body">
+      <p>El poder no comienza con la autoridad; comienza con la consciencia. Antes de que un líder dé órdenes a otros, primero debe confrontarse a sí mismo, a sus miedos, a su hambre, a su silencio. El liderazgo no nace de los aplausos; nace del aislamiento.</p>
+      <p>No me desperté una mañana transformado. No hubo ceremonia ni declaración. Lo que cambió fue más silencioso que eso. Me detuve para dejarme guiar. Comencé a observar, a escuchar y a evaluar.</p>
+      <p>Cuando el mundo se siente desolado, la gente busca fuerza. Aprendí que la confianza, o la apariencia de ella, puede calmar una habitación más rápido que la verdad. Esa fue la primera sombra.</p>
+      <p>El poder tiene una forma sutil de remodelar la intención. Al principio, das un paso al frente porque nadie más hablará. Empiezas a darte cuenta de que la influencia es adictiva. La capacidad de conmover a la gente con palabras, redirigir el miedo y transformar el caos en orden.</p>
+      <p>La gente empieza a verte de otra manera, no como un igual, sino como un referente. Sus dudas te abruman, sus expectativas crecen y su confianza se convierte tanto en un regalo como en una carga. Y en ese momento, nace un líder. No de la perfección, sino de la necesidad.</p>
+      <div class="pull-quote"><p>"La tristeza del poder no es la corrupción, sino la tentación. La tentación de creer en tu propia narrativa, de confundir control con sabiduría, de confundir obediencia con respeto."</p></div>
+      <div class="duality-block">
+        <div class="duality-left"><div class="duality-label">Servicio</div>Proteger a los vulnerables. Liderar desde la humildad. Cuestionar el poder propio cada día.</div>
+        <div class="duality-right"><div class="duality-label">Dominación</div>Moldear según la propia visión. Confundir control con sabiduría. Dejar de cuestionarse.</div>
+      </div>
+      <p>Sentí la tensión. El mismo desequilibrio que antes existía entre el amor y la supervivencia, ahora existía entre el servicio y la dominación. Un líder debe elegir cada día en quién se está convirtiendo.</p>
+      <p>La transformación más peligrosa no es cuando un líder se vuelve temido, sino cuando deja de cuestionarse a sí mismo. Esa es la sombra, y ahí es donde comienza el verdadero liderazgo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 5 -->
+<section class="chapter-page dev-page" id="dev5">
+  <div class="chapter-accent red"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 05</div>
+    <div class="chapter-num">Capítulo 05</div>
+    <h2 class="chapter-title">La rebelión <em>del alma</em></h2>
+    <div class="chapter-rule red"></div>
+    <div class="chapter-body">
+      <p>Llegó un momento en que sentí que mi propia vida se había convertido en una traición a mí misma. Durante años viví obedeciendo reglas escritas por otros, siguiendo caminos que no había elegido, usando máscaras que me protegían pero también me asfixiaban. Y algo oculto en una voz que había permanecido en silencio durante demasiado tiempo decidió romper ese silencio.</p>
+      <p>Al principio, fue apenas un susurro. Hablaba de cosas simples, casi triviales: basta de mentiras, basta de máscaras, basta de obediencia ciega. Pero luego la voz se convirtió en un clamor, y cada palabra que pronunciaba resonaba en mi pecho como un tambor. Sentí mi corazón latir con una fuerza que nunca había conocido, y con cada latido, las sombras dentro de mí comenzaron a alzarse, no para destruirme, sino para reclamar lo que siempre había sido mío.</p>
+      <div class="pull-quote"><p>"La rebelión no fue un acto externo sino un terremoto interno."</p></div>
+      <p>Vi cómo cada decisión tomada por miedo, cada acción impulsada por la inseguridad, cada gesto de conformidad que había enjaulado mi propia alma comenzó a desmoronarse. Mi mente se convirtió en un campo de batalla: por un lado el orden que me habían enseñado, la obediencia, la fría razón; por el otro la pasión, la autenticidad, la libertad que había negado por tanto tiempo.</p>
+      <p>Recuerdo un día en particular que caminé por la ciudad con sus calles impecables, sus edificios perfectos, sus ciudadanos aliviados, un silencio aparente. Todo parecía inmutable, todo parecía seguro, pero para mí, las paredes, cada ventana, cada sombra, ese lugar gritaba la mentira de esa perfección.</p>
+      <p>Empecé a hablarme a mí mismo con brutal honestidad, confrontando mis miedos más profundos. Recordé cada error que había cometido, cada vez que había lastimado a alguien, cada mentira que había dicho para protegerme, pero también recordé cada acto de bondad que había olvidado, cada momento en que la luz dentro de mí había brillado, incluso cuando nadie la veía. Y fue allí, en ese reconocimiento, que mi alma decidió rebelarse, no destruir, sino renacer.</p>
+      <div class="pull-quote"><p>"La libertad no era un regalo del mundo exterior, sino un acto que debía realizar dentro de mí. La bondad, la luz y la verdad no estaban afuera, estaban ocultas tras los muros que yo mismo había construido."</p></div>
+      <p>Desde ese día, supe que nada volvería a ser igual. Comprendí que toda autoridad, todas las leyes, todas las máscaras impuestas, solo tienen poder mientras se lo permitamos. Mi alma finalmente emprendió su viaje hacia la luz que siempre había buscado, y aunque aún cargaba con sombras y fragmentos rotos dentro de mí, aprendí que la rebelión no significa autodestrucción, sino recuperar la plenitud de quienes somos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 6 -->
+<section class="chapter-page dev-page" id="dev6">
+  <div class="chapter-accent blue"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 06</div>
+    <div class="chapter-num">Capítulo 06</div>
+    <h2 class="chapter-title blue-accent">La ciudad <em>del orden perfecto</em></h2>
+    <div class="chapter-rule blue"></div>
+    <div class="chapter-body">
+      <p>Al llegar a la ciudad, no pude evitar sentir una mezcla de fascinación y miedo. Todo eran calles inmaculadas, edificios impecables alineados con precisión geométrica, jardines que parecían sacados de un sueño de simetría. Los ciudadanos caminaban en silencio por senderos que parecían trazados por un plan superior. La perfección era abrumadora, casi insoportable.</p>
+      <p>Al principio, pensé que había encontrado un refugio, un lugar donde la dualidad de mi alma podía descansar, donde el caos interior podía encontrar un espejo que lo apaciguara. Pero pronto me di cuenta de que esta perfección era engañosa. No había libertad allí. La armonía se basaba en el miedo y la obediencia. Cada gesto simple era calculado, cada saludo medido, cada movimiento observado por ojos invisibles.</p>
+      <p>Caminando por sus avenidas, comprendí que esta ciudad era como mi propio yo interior llevado al extremo. Cada calle representaba mi deseo de control. Cada edificio, mi obsesión por el orden. Era una extensión tangible de lo que había aprendido: la seguridad y la estabilidad eran más importantes que la autenticidad.</p>
+      <p>Pero al observar más de cerca, noté grietas en la perfección. Un pequeño puño delataba miedo, un parpadeo desconcertante, una mirada errante, un susurro tras las sombras de los edificios. Comprendí entonces que la verdadera naturaleza de la humanidad no puede ser borrada por la fuerza de un sistema. Puede ser contenida, suprimida, pero siempre encuentra la manera de emerger.</p>
+      <div class="pull-quote"><p>"Había silencio, pero no paz. Había control, pero no armonía. Había estructura, pero no alma."</p></div>
+      <p>Pasé días explorando cada rincón, hablando con algunos habitantes lo suficientemente valientes como para susurrar tras puertas cerradas. Sus palabras eran como suspiros que escapaban de una prisión invisible: "Todo está bien, pero sentimos que algo falta." Y entonces comprendí la lección más importante de mi viaje: la ciudad verdaderamente perfecta nace primero en el corazón humano.</p>
+      <p>Fue allí que mi alma decidió rebelarse una vez más, no contra la ciudad ni sus habitantes, sino contra la parte de mí que aún buscaba ordenar y controlar lo inmutable: la esencia misma de la humanidad. Aprendí que el equilibrio no se logra imponiendo reglas externas, sino comprendiendo la dualidad que todos poseemos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 7 -->
+<section class="chapter-page dev-page" id="dev7">
+  <div class="chapter-accent gold"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 07</div>
+    <div class="chapter-num">Capítulo 07</div>
+    <h2 class="chapter-title gold-accent">La luz <em>que falta</em></h2>
+    <div class="chapter-rule gold"></div>
+    <div class="chapter-body">
+      <p>No era la oscuridad lo que me inquietaba en la ciudad del orden perfecto. Era la ausencia de luz. La oscuridad, al menos, se anuncia, tiene presencia, te confronta con honestidad, pero aquí no había oscuridad visible. La ciudad estaba iluminada a toda hora. Soles artificiales flotaban sobre las avenidas. Los edificios brillaban con un resplandor estéril. Y, sin embargo, faltaba algo esencial.</p>
+      <p>La luz aquí no calentaba, no reconfortaba, no revelaba la verdad. La exponía. Hay una diferencia. La luz verdadera abraza la sombra, permite el contraste, la profundidad, la textura. Revela la belleza porque acepta la imperfección; pero esta luz borraba el contraste, aplanaba la realidad, despojaba de misterio a cada rostro, de historia a cada edificio, de profundidad a cada alma.</p>
+      <p>No había atardeceres en esta ciudad, ni un desvanecimiento gradual en el crepúsculo. La noche llegó al instante, controlada por una calibración precisa; incluso la oscuridad estaba regulada.</p>
+      <p>La luz que faltaba no era física, sino espiritual. Era la clase de luz que permite a los seres humanos lidiar con la duda, la luz que ilumina la consciencia, la luz que despierta la compasión, la luz que arde silenciosamente en el pecho cuando uno elige la verdad por encima de la comodidad.</p>
+      <p>Al caminar por sus calles, comencé a observar a la gente: eran agudos, alertas, eficientes, pero vacíos. No había llama interior en ellos, ni rebelión silenciosa, ni inquietud sagrada, solo sumisión. El sistema había eliminado el caos, pero al hacerlo, también había eliminado el anhelo. Y el anhelo es donde comienza la luz. Sin anhelo, no hay búsqueda; sin búsqueda, no hay despertar; y sin despertar, no hay verdadera humanidad.</p>
+      <div class="pull-quote"><p>"¿Y si esta ciudad no teme a la oscuridad, sino a la luz genuina? Porque la luz verdadera no obedece. Expone la corrupción. Revela la hipocresía. Despierta a quienes dormían en paz."</p></div>
+      <p>El líder había prometido seguridad, estabilidad y unidad, y había cumplido algo similar: el crimen era casi inexistente, el hambre se había minimizado, la guerra había calmado las calles. Pero la calma no es lo mismo que la paz. La paz requiere verdad. Y la verdad requiere luz.</p>
+      <p>Una noche me quedé solo en una amplia plaza pública. Cerré los ojos. Por primera vez desde que entré en la ciudad, permití que la oscuridad regresara. No la oscuridad externa, sino el silencio interior. Y en ese silencio sentí una pequeña llama. Débil pero real. No fue impuesta por ninguna autoridad. Era mi conciencia. Era mi libertad. Era el recuerdo de algo superior al orden.</p>
+      <div class="pull-quote"><p>"La ciudad intentó crear el cielo mediante el control. Pero el cielo no puede existir donde falta la libertad."</p></div>
+      <p>Un mundo sin oscuridad visible aún puede ser espiritualmente ciego. La gente de aquí confundía la exposición con la revelación, la vigilancia con la consciencia. Pero la unidad sin verdad es frágil. Y la verdad sin luz es imposible. La luz que falta en una sociedad debe primero encontrarse en una sola alma. Y ya no estaba dispuesto a vivir sin ella.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEV 8 -->
+<section class="chapter-page dev-page" id="dev8">
+  <div class="chapter-accent dark"></div>
+  <div class="chapter-inner">
+    <div class="section-badge desarrollo-badge">Desarrollo · Capítulo 08</div>
+    <div class="chapter-num">Capítulo 08</div>
+    <h2 class="chapter-title">La caída <em>del falso orden</em></h2>
+    <div class="chapter-rule dark"></div>
+    <div class="chapter-body">
+      <p>Al principio, no me di cuenta de que el sistema se estaba derrumbando. La ciudad seguía moviéndose con su precisión habitual. Las calles permanecían en silencio. Las torres permanecían intactas, y las interminables filas de ciudadanos continuaban con sus rutinas como si nada hubiera cambiado. Pero algo había empezado a agrietarse bajo la superficie.</p>
+      <p>Y cuando una grieta aparece en un sistema perfecto, se propaga. Al principio, eran pequeñas cosas: un trabajador se detuvo demasiado tiempo antes de entrar en un edificio. Una mujer miró al cielo como si hubiera olvidado lo que se suponía que debía estar haciendo. Un niño hizo una pregunta que no tenía cabida en una ciudad construida sobre respuestas. Esto no eran crímenes. Eran interrupciones, y la interrupción es el comienzo del colapso.</p>
+      <div class="pull-quote"><p>"La consciencia es enemiga del control perfecto."</p></div>
+      <p>El vacío que una vez llenó a la gente había empezado a transformarse, no todavía en alegría, sino en algo mucho más poderoso: la consciencia. El sistema intentó corregirlo. Los anuncios resonaron por toda la ciudad. Aparecieron nuevas regulaciones. El movimiento se volvió aún más controlado. Pero cuanto más apretaba el sistema, más parecía dudar la gente.</p>
+      <p>La máquina había sido diseñada para eliminar el caos, pero ahora el caos no venía de fuera. Surgió del interior de la propia gente. Me encontraba en una de las plazas centrales. Y, sin embargo, la plaza se sentía más pesada de lo habitual. Por primera vez desde que llegué, la ciudad se sentía humana, y eso asustó al sistema.</p>
+      <p>Un hombre se negó a moverse cuando una señal le indicaba que caminara. Suena insignificante, pero en una ciudad como esta, fue revolucionario. Simplemente se quedó allí parado. Sin protestar. Sin gritar. Simplemente de pie. El silencio a su alrededor se profundizó. Algunos lo miraban, temerosos de ser asociados con el disturbio. Otros lo observaban con curiosidad, como si presenciaran algo antiguo que nunca antes habían visto.</p>
+      <div class="pull-quote"><p>"Una vez que la idea de la elección se arraiga en un sistema controlado, se vuelve imposible de borrar."</p></div>
+      <p>Las conversaciones comenzaron en rincones de la ciudad donde las cámaras eran menos visibles. La gente susurraba preguntas que nunca antes se habían hecho: ¿Por qué continuamos? ¿Quién creó estas reglas? ¿Qué nos estamos perdiendo? El control tiene sus límites. Y ese límite es el alma humana.</p>
+      <p>La ciudad del orden perfecto ya había comenzado a caer. No por un enemigo externo. No por la violencia. Sino porque el espíritu humano había comenzado a recordar que era libre. Y una vez que el alma recuerda la libertad, ningún sistema en la Tierra puede volver a controlarla por completo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final-page" id="final">
+  <div class="final-bg-left"></div><div class="final-bg-right"></div>
+  <div class="final-content">
+    <div class="final-label">Capítulo 10 · Epílogo</div>
+    <div class="final-title">El hombre perfecto</div>
+    <div class="final-rule"></div>
+    <p class="final-body">El hombre perfecto no es el que nunca cae, ni el que domina a los demás, ni el que vive sin sombras.</p>
+    <p class="final-body">El hombre perfecto es el que comprende su dualidad y aprende a vivir con ella sin destruirse.</p>
+    <div style="margin:36px 0;display:flex;flex-direction:column;gap:14px;">
+      <p class="final-body" style="color:#5a9ad4;">Somos luz y somos sombras.</p>
+      <p class="final-body" style="color:#e05a40;">Somos espíritu y somos supervivencia.</p>
+      <p class="final-body" style="color:var(--gold);">Somos Edén y somos desierto.</p>
+    </div>
+    <p class="final-body">Y nuestra historia como humanidad y como individuos es la historia de aprender a vivir entre ambos.</p>
+    <div class="final-rule"></div>
+    <div class="final-closing">— Kery Gúzman</div>
+    <div style="margin-top:48px;opacity:.4;">
+      <svg width="100" height="48" viewBox="0 0 200 96" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 8 Q192 48 100 88 Q8 48 100 8Z" fill="#ffffff"/>
+        <circle cx="100" cy="48" r="28" fill="#cc2200"/>
+        <circle cx="100" cy="48" r="14" fill="#111111"/>
+        <circle cx="92" cy="40" r="5" fill="rgba(255,255,255,0.4)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+  function setActive(el){document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));el.classList.add('active');if(window.innerWidth<=900)document.getElementById('sidebar').classList.remove('open');}
+  const sections=document.querySelectorAll('section[id]');
+  const navItems=document.querySelectorAll('.nav-item');
+  window.addEventListener('scroll',()=>{
+    let current='';
+    sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)current=s.id;});
+    navItems.forEach(n=>{n.classList.remove('active');if(n.getAttribute('href')==='#'+current)n.classList.add('active');});
+  });
+</script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
